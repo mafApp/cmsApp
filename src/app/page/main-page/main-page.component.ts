@@ -9,25 +9,23 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./main-page.component.css']
 })
 export class MainPageComponent implements OnInit {
+  public content: any;
   public pageData: any;
-  public test: any;
-  public sub: any;
   constructor(private dbService: PageContentService, private route: ActivatedRoute) {
-    this.sub = this.route.params.subscribe(id => {
-      if (id.id ) {
-        const params = {table: 'pages', field: 'title' , value: id.id };
-        this.dbService.getRecords(params);
-      }
-    });
    }
-
   ngOnInit() {
-    this.dbService.query.subscribe(data => {
-      this.pageData =  _.values(data);
+    this.dbService.pages.subscribe(data => {
+     _.forEach(data, page => {
+      const params = {table: 'pages', field: 'page_id' , value: page.id };
+      const content = this.dbService.getContent(params);
+      content.subscribe( contentData => {
+        if ( contentData.length) {
+          page.content = _.values(contentData);
+        }
+        this.pageData =  _.values(page);
+        console.log(this.pageData);
+      });
+     });
     });
-  } 
-  ngOnDestroy() {
-    this.sub.unsubscribe();
   }
-
 }

@@ -1,0 +1,5 @@
+<div class="collection with-header">
+  <a class="collection-item" routerLink="/admin/{{listItem.id}}" *ngFor="let listItem of list">
+    {{listItem.title}}{{listItem.content}}{{listItem.galery_title}}
+  </a>
+</div>

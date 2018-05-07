@@ -1,24 +1,19 @@
-  <div class="parallax-container">
-      <div parallax>
-        <img class="responsive-img" src="https://firebasestorage.googleapis.com/v0/b/cmsapp-e525d.appspot.com/o/DSC_0501.jpg?alt=media&token=371dfb5c-50f8-4e48-ad32-5e7c3d204b3a">
-      </div>
-  </div>
   <div class="section white">
       <div class="row">
           <div class="col s12 m6" *ngFor=" let pageInfo of pageData" >
             <div class="card">
               <div class="card-image">
-                <img src="{{pageInfo.img}}">
+                <img src="img">
                 <span class="card-title">
                     <a [routerLink]="['page', pageInfo.title]" class="white-text" >
                  <h3> {{pageInfo.title}}</h3>
                 </a></span>
               </div>
               <div class="card-content">
-                <p>{{pageInfo.content}}</p>
+                <p *ngFor=" let contentData of pageInfo.content">{{contentData.content}}</p>
               </div>
               <div class="card-action">
-                <a  [routerLink]="['page', pageInfo.title]" >{{pageInfo.title}}</a>
+                <a  [routerLink]="['page', pageInfo.id]" >{{pageInfo.title}}</a>
               </div>
             </div>
           </div>

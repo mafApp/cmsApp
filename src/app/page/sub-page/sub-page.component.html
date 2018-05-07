@@ -1,3 +1,11 @@
-<h1>{{pageData.title}}</h1>
-<p>{{pageData.content}}</p>
-<img src="{{pageData.img}}">
+<h2 *ngFor=" let pageData of pageData">{{pageData.title}}</h2>
+<section *ngFor=" let pageContent of pageContent" class="container">
+    {{pageContent.content}}
+</section>
+<div class="container row">
+        <div *ngFor=" let subPageContent of subPages" class="col s12 m3 s4">
+                <h5>{{subPageContent.title}}</h5>
+                <p>{{subPageContent.content}}</p>
+                <img *ngFor=" let img of subPages.images" src="{{img.src}}" class="responsive-img">
+            </div>
+</div>

@@ -1,0 +1,13 @@
+<ul id="slide-out" class="side-nav fixed black">
+  <section class="center nav-section">
+      <li>
+          <a [routerLink]="['']" class="light-green-text">Начало</a>
+        </li>
+        <li  *ngFor=" let pageInfo of pageData">
+          <a [routerLink]="['page', pageInfo.id]" class="light-green-text">{{pageInfo.title}}</a>
+        </li>
+        <li>
+          <a [routerLink]="['admin','','']" class="red-text">Администрация</a>
+        </li>
+  </section>
+</ul>

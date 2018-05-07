@@ -10,19 +10,47 @@ import * as _ from 'lodash';
 })
 export class SubPageComponent implements OnInit {
   public sub: any;
+  public pageContent: any;
   public pageData: any;
-  constructor(private dbService: PageContentService, private route: ActivatedRoute) { 
+  public pageImages: any;
+  public subPages: any;
+  constructor(private dbService: PageContentService, private route: ActivatedRoute) { }
+  ngOnInit() {
     this.sub = this.route.params.subscribe(id => {
-      const params = {table: 'pages', field: 'title' , value: id.id };
-      this.dbService.getRecords(params);
-      const getData =  this.dbService.query.subscribe(data => {
-        this.pageData = data[0];
-      });
+      this.getPage({page: 'page', field: 'id' , value: id.id });
+      this.getContent({page: 'content', field: 'page_id' , value: id.id });
+      this.getSubPages({page: 'sub_pages', field: 'page_id' , value: id.id });
     });
   }
-
-  ngOnInit() {
-
+  private getContent(params) {
+    const getData = this.dbService.getPage(params);
+    getData.subscribe(data => {
+     this.pageContent = data;
+    });
   }
-
+  private getPage(params) {
+      const getData = this.dbService.getPage(params);
+      getData.subscribe(data => {
+       this.pageData = data;
+      });
+  }
+  private getSubPages(params) {
+    const getData = this.dbService.getPage(params);
+    getData.subscribe(data => {
+     this.subPages = data;
+     _.forEach(data, subPage => {
+       const img = this.getImages({page: 'images', field: 'img_id' , value: subPage.img });
+       img.subscribe(img_data => {
+        this.subPages.images = img_data;
+       });
+     });
+    });
+}
+private getImages(params) {
+  const getData = this.dbService.getPage(params);
+  getData.subscribe(data => {
+  return data;
+  });
+ return getData;
+}
 }

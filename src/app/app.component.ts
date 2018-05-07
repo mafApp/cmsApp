@@ -11,9 +11,8 @@ import * as _ from 'lodash';
 export class AppComponent {
   pageData: any;
   constructor(private dbService: PageContentService, private route: ActivatedRoute) {
-    this.dbService.query.subscribe(data => {
+    this.dbService.pages.subscribe(data => {
       this.pageData =  _.values(data);
-      console.log(data);
     });
   }
 }

@@ -1,0 +1,93 @@
+{
+    "page": [
+        {
+            "id":"1",
+            "title":"За нас",
+            "type": "one_page",
+            "content":[
+                {
+                    "image":"2",
+                    "content":"Настаняване"
+                }
+            ],
+            "galery":[
+                {
+                    "src":"https://firebasestorage.googleapis.com/v0/b/cmsapp-e525d.appspot.com/o/DSC_0578.JPG?alt=media&token=d6f3ee58-a4b3-48a5-bcca-990eddc49edd"
+                }
+            ]
+        },
+        {
+            "id":"2",
+            "title":"Настаняване",
+            "type": "multy_page"
+        },
+        {
+            "id":"3",
+            "title":"Забележителности",
+            "type": "multy_page"
+        },
+        {
+            "id":"4",
+            "title":"Контакти",
+            "type": "contact_page"
+        },
+        {
+            "id":"5",
+            "title":"Галерия",
+            "type": "galery_page"
+        }
+    ],
+    "content":[
+        {
+            "page_id":"1",
+            "content":"За нас"
+        },
+        {
+            "page_id":"2",
+            "content":"Настаняване"
+        }
+    ],
+    "images":[
+        {
+            "img_id":"1",
+            "galery_id":1,
+            "src":"https://firebasestorage.googleapis.com/v0/b/cmsapp-e525d.appspot.com/o/DSC_0501.jpg?alt=media&token=371dfb5c-50f8-4e48-ad32-5e7c3d204b3a"
+        },
+        {
+            "img_id":"2",
+            "galery_id":"1",
+            "src":"https://firebasestorage.googleapis.com/v0/b/cmsapp-e525d.appspot.com/o/DSC_0578.JPG?alt=media&token=d6f3ee58-a4b3-48a5-bcca-990eddc49edd"
+        },
+        {
+            "img_id":3,
+            "galery_id":"1",
+            "src":"https://firebasestorage.googleapis.com/v0/b/cmsapp-e525d.appspot.com/o/DSC_0578.JPG?alt=media&token=d6f3ee58-a4b3-48a5-bcca-990eddc49edd"
+        }
+    ],
+    "galeries":[
+        {
+            "galery_id":"1",
+            "galery_title":"Rooms"
+        }
+    ],
+    "sub_pages":[
+        {
+            "page_id":"2",
+            "title":"Sub Page 1",
+            "content":"Sub page content",
+            "img":"2"
+        },
+        {
+            "page_id":"2",
+            "title":"Sub Page 2",
+            "content":"Sub page content",
+            "img":"1"
+        },
+        {
+            "page_id":"2",
+            "title":"Sub Page 3",
+            "content":"Sub page content",
+            "img":"3"
+        }
+    ]
+  }
