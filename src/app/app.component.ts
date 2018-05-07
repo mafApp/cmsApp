@@ -1,4 +1,7 @@
 import { Component } from '@angular/core';
+import { PageContentService } from './service/page-content.service';
+import { ActivatedRoute } from '@angular/router';
+import * as _ from 'lodash';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +9,11 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'app';
+  pageData: any;
+  constructor(private dbService: PageContentService, private route: ActivatedRoute) {
+    this.dbService.query.subscribe(data => {
+      this.pageData =  _.values(data);
+      console.log(data);
+    });
+  }
 }
